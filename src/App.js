@@ -1,69 +1,56 @@
-import React from "react"; // eslint-disable-line no-unused-vars
-import { Counter } from "./features/counter/Counter";
-import "./App.css";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react'; // eslint-disable-line no-unused-vars
+import './App.css';
+import Todo from './Todo';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import styled from 'styled-components';
 
 function App() {
-  const Title = styled.h1`
-    font-size: 1em;
-    text-align: center;
-    color: palevioletred;
+  const Main = styled.main`
+    background-color: #393e46;
+    min-width: 80%;
+    min-height: 550px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 3px 6px 40px #000;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
   `;
 
-  // Create a Wrapper component that'll render a <section> tag with some styles
-  const Wrapper = styled.section`
-    padding: 4em;
-    background: papayawhip;
-  `;
+  const initialState = JSON.parse(localStorage.getItem('todo') || []);
+  const [todo, setTodo] = useState(initialState);
+  const [input, setInput] = useState('');
+  const [editTodo, setEditTodo] = useState(null);
+  const [value, setValue] = useState(new Date());
+  // useEffect(() => {
+  //   localStorage.setItem('todo', JSON.stringify(todo));
+  // }, []);
+
+  console.log(value.getDate(), value.getMonth() + 1);
   return (
-    <div className="App">
-      <Wrapper>
-        <Title>Hello World!</Title>
-      </Wrapper>
-      <header className="App-header">
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="container">
+      <Main>
+        {
+          <Todo
+            input={input}
+            setInput={setInput}
+            todo={todo}
+            setTodo={setTodo}
+            editTodo={editTodo}
+            setEditTodo={setEditTodo}
+            value={value}
+            setValue={setValue}
+          />
+        }
+        <article className="datepicker">
+          <DatePicker
+            selected={value}
+            onChange={date => setValue(date)}
+            inline
+          />
+        </article>
+      </Main>
     </div>
   );
 }

@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.container {
+  background: linear-gradient(to right bottom, #222831, #2b333e);
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* main */
+.todo{
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+.todo-content{
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header{
+  width: 100%;
+  color: #ECB365;
+  margin: 5px 0;
+  font-size: 1.5rem;
 }
+
+h5{
+  display: flex;
+  justify-content: flex-end;
+}
+
+hr{
+  border: 1px solid #ECB365;
+  margin: 13px 0;
+}
+.uncompleted{
+  color: #ECB365;
+  margin-left: 10px;;
+}
+
+/* input */
+
+.task-input{
+  outline: none;
+  width: 260px;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 15px;
+  color: #ccc;
+  background-color: #393E46;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+
+.button-add{
+  margin-left: -50px;
+  width: 60px;
+  font-size: 15px;
+  border: 0;
+  background-color: #393E46;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.list-item{
+  display: flex;
+  margin: 10px 0;
+  border-radius: 10px;
+  padding: 5px;
+  max-height: 30px;
+}
+.button-complete,
+.button-delete,
+.button-edit{
+  border: none;
+  outline: none;
+  cursor:pointer;
+  background-color: transparent;
+  font-size: 15px;
+  border-radius: 50%;
+}
+.button-complete{
+  color: #ECB365;
+  margin-right: 10px;
+}
+
+.button-edit{
+  color: #ccc;
+  margin-right: 10px;
+}
+.button-delete{
+  color: #ff6c6c;
+}
+.complete{
+  text-decoration-style: solid;
+  text-decoration-line: line-through;
+  text-decoration-color: #ff6c6c;
+  opacity: 0.6;
+}
+.list{
+  width: 220px;
+  background-color: #393E46;
+  border: none;
+  color: #ccc;
+  font-size: 15px;
+  padding-left: 10px;
+  margin-right: 15px;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+.buttons{
+  display: flex;
+}
+
+/* calender */
+.datepicker{
+  display:flex;
+  align-items: center;
+}
+.react-datepicker{
+  display: flex;
+  margin: 20px;
+}
+.selected-day{
+  background: #ECB365;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+/* .react-datepicker__day--selected, .react-datepicker__day--selected:hover{
+  background-color: #ECB365;
+} */
+
+/* media query */
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+	.nav>a{
+    font-weight:900;
+    font-size: 1.2rem;
+  }
+  .todo{
+    display: flex;
+    flex-direction: column;
+    /* padding: 5%; */
+  }
+  .todo-content{
+    display: flex;
+    flex-direction: column;
+    /* padding: 5%; */
+  }
+  .react-calendar { 
+    width: 300px;
+    /* max-width: 100%; */
+    margin: 10% 0;
+   }
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+/* home */
