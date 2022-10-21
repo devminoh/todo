@@ -13,7 +13,7 @@ function App() {
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 3px 6px 40px #000;
-    margin-bottom: 10px;
+    margin-bottom: 11px;
     display: flex;
     justify-content: space-evenly;
   `;
